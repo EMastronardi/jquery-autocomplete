@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" value="email" id="email"/>
+	<label id ="emails"></label>
+	<br>
+	<input type="text" value="name" id="name"/>
+	<label id ="names"></label>
+	<br>
+	<input type="text" value="language" id="language"/>
+	<label id ="languages"></label>
+
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.autocomplete-inline.js"></script>
+	<script>
+		$(document).ready( function() {
+			var domains = new Array('arnet.com.ar','ciudad.com.ar','fibertel.com.ar','gmail.com','hotmail.com','live.com','live.com.ar','speedy.com.ar','yahoo.com','yahoo.com.ar');
+			
+			$("#emails").text("Try with :" + domains.toString()); 
+			$('#email').autocomplete({});
+
+
+			var names = ['Jack', 'Thomas', 'Joshua', 'William', 'Daniel', 'Matthew', 'James', 'Joseph', 'Harry', 'Samuel'];
+
+			$('#name').autocomplete({startChar:'',words:names});
+			$("#names").text("Try with :" + names.toString());
+			var langs = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
+			$("#languages").text("Try with :" + langs.toString());
+			$('#language').autocomplete({startChar:'', words:langs});
+		});
+	</script>
+</body>
+</html>
