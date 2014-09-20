@@ -4,7 +4,8 @@
         //Default Settings
         var settings = $.extend({
             startChar  : '@',
-            complete   : null,
+            caseSensitive: false,
+            onComplete   : null,
             words:     new Array('arnet.com.ar','ciudad.com.ar','fibertel.com.ar','gmail.com','hotmail.com','live.com','live.com.ar','speedy.com.ar','yahoo.com','yahoo.com.ar'),
         }, options);
 
@@ -100,10 +101,14 @@
                   value = value+suggestion;
                   $(this).val(value);
                   createSelection($(this).get(0),index+1,$(this).val().length);
-                  return false;
-              }
-          }
-      })
+                  //CALLING onComplete callback function, if exists
+                  if (typeof settings.onComplete == 'function') { // make sure the callback is a function
+                        settings.onComplete.call(this); // brings the scope to the callback
+                    }
+                    return false;
+                }
+            }
+        })
 });
 }   
 }(jQuery, document, window));

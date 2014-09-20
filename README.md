@@ -34,3 +34,7 @@ A simple and lightweight jQuery plugin to add autocomplete feature to inputs, as
 </body>
 </html>
 ```
+**Passing a callback function**
+````javascript
+$("#foo").autocomplete({onComplete: function(){alert('bar');}});
+````
