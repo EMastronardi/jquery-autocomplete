@@ -12,9 +12,10 @@
 	<br>
 	<input type="text" value="language" id="language"/>
 	<label id ="languages"></label>
+	<input type="text" id="autocompleteNames"/>
 
 	<script src="js/jquery-2.1.0.min.js"></script>
-	<script src="js/jquery.autocomplete-inline.js"></script>
+	<script src="js/jquery.autocomplete-inline.min.js"></script>
 	<script>
 		$(document).ready( function() {
 			var domains = new Array('arnet.com.ar','ciudad.com.ar','fibertel.com.ar','gmail.com','hotmail.com','live.com','live.com.ar','speedy.com.ar','yahoo.com','yahoo.com.ar');
@@ -30,7 +31,13 @@
 			var langs = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
 			$("#languages").text("Try with :" + langs.toString());
 			$('#language').autocomplete({startChar:'', words:langs});
+
+			$("#autocompleteNames").autocomplete({
+				startChar:'',
+				words: ['Jack', 'Thomas', 'Joshua', 'William', 'Daniel', 'Matthew', 'James', 'Joseph', 'Harry', 'Samuel']
+
+			});
 		});
-	</script>
+</script>
 </body>
 </html>
