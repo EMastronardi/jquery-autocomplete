@@ -1,17 +1,18 @@
-#jquery-autocomplete
+#jquery-autocomplete Plugin
 
 A simple and lightweight jQuery plugin to add autocomplete feature to inputs, as in line prediction based in an array of words.
 
-##Parameters
+##Settings
 
-
-##Use
--startChar: a char to mark the start of the search. Default: @
--words: the array of words that the plugin will use. Default:  arnet.com.ar','ciudad.com.ar','fibertel.com.ar','gmail.com','hotmail.com','live.com','live.com.ar','speedy.com.ar','yahoo.com','yahoo.com.ar'
--onComplete: to give the plugin a callback function
+| Property        | Default              | Details  |
+| ---------------- |:-------------------------:|-----------------------------|
+| startChar      | @ | A char to mark the start of the search |
+| words      | 'gmail.com', 'hotmail.com', 'live.com' and more | Array of words that the plugin will use |
+| onComplete | null | Callback that fires right after prediction is made |
+| caseSensitive | false | Case sensitive behaviour |
 
 **Basic example**
-```
+````html
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@ A simple and lightweight jQuery plugin to add autocomplete feature to inputs, as
 
 </body>
 </html>
-```
+````
 **Passing a callback function**
 ````javascript
 $("#foo").autocomplete({onComplete: function(){alert('bar');}});
