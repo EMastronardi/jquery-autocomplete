@@ -9,7 +9,7 @@ A simple and lightweight jQuery plugin to add autocomplete feature to inputs, as
 | startChar      | @ | A char to mark the start of the search |
 | words      | 'gmail.com', 'hotmail.com', 'live.com' and more | Array of words that the plugin will use |
 | onComplete | null | Callback that fires right after prediction is made |
-| caseSensitive | false | Case sensitive behaviour |
+| caseSensitive | true | Case sensitive behaviour |
 
 **Basic example**
 ````html

@@ -4,7 +4,7 @@
         //Default Settings
         var settings = $.extend({
             startChar  : '@',
-            caseSensitive: false,
+            caseSensitive: true,
             onComplete   : null,
             words:     new Array('arnet.com.ar','ciudad.com.ar','fibertel.com.ar','gmail.com','hotmail.com','live.com','live.com.ar','speedy.com.ar','yahoo.com','yahoo.com.ar'),
         }, options);
@@ -33,12 +33,18 @@
 
         function startsWith(str1,str2)
         {
-            return str1.slice(0,str2.length) == str2;
+            if(settings.caseSensitive)
+                return str1.slice(0,str2.length) == str2;
+            else 
+                return str1.toLowerCase().slice(0,str2.toLowerCase().length) == str2.toLowerCase();
         }
 
         function endsWith(str1, str2)
         {
-            return str1.slice(-str2.length) == str2;
+            if(settings.caseSensitive)
+                return str1.slice(-str2.length) == str2;
+            else
+                return str1.toLowerCase().slice(-str2.length) == str2.toLowerCase();
         }
 
         //****//
@@ -78,12 +84,12 @@
 
                 if(a_pos > -1 && textChars[a_pos+idx] != undefined){
 
-                   var suggestion = "";
-                   var domain = (value.substring(a_pos+idx));
+                 var suggestion = "";
+                 var domain = (value.substring(a_pos+idx));
 
-                   var words = settings.words;
+                 var words = settings.words;
 
-                   for (var i = 0; i < words.length; i++) {
+                 for (var i = 0; i < words.length; i++) {
                     if(startsWith(words[i],domain)){
                         suggestion = words[i];
                         break;
@@ -94,21 +100,23 @@
                   var newPos = a_pos + idx;
 
                   var a_domain = value.substring(newPos);
+                  if(settings.caseSensitive)
+                    suggestion = suggestion.replace(a_domain,'');
+                else
+                    suggestion = suggestion.toLowerCase().replace(a_domain.toLowerCase(),'');
 
-                  suggestion = suggestion.replace(a_domain,'');
-
-                  var index = value.length-1;
-                  value = value+suggestion;
-                  $(this).val(value);
-                  createSelection($(this).get(0),index+1,$(this).val().length);
+                var index = value.length-1;
+                value = value+suggestion;
+                $(this).val(value);
+                createSelection($(this).get(0),index+1,$(this).val().length);
                   //CALLING onComplete callback function, if exists
-                  if (typeof settings.onComplete == 'function') { // make sure the callback is a function
-                        settings.onComplete.call(this); // brings the scope to the callback
-                    }
-                    return false;
+                  if (typeof settings.onComplete == 'function') { 
+                    settings.onComplete.call(this);
                 }
+                return false;
             }
-        })
+        }
+    })
 });
 }   
 }(jQuery, document, window));
