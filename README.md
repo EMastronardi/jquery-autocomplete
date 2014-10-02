@@ -23,7 +23,7 @@ A simple and lightweight jQuery plugin to add autocomplete feature to inputs, as
 	<input type="text" id="autocompleteMailDomains"/>
 	<script>
 		$("#autocompleteNames").autocomplete({
-			startChar:'',
+			startChar:'', //from the beginning of the input
 			words: ['Jack', 'Thomas', 'Joshua', 'William', 'Daniel', 'Matthew', 'James', 'Joseph', 'Harry', 'Samuel']
 
 		});
@@ -35,7 +35,7 @@ A simple and lightweight jQuery plugin to add autocomplete feature to inputs, as
 </body>
 </html>
 ````
-**Passing a callback function**
+**Using a callback function**
 ````javascript
 $("#foo").autocomplete({onComplete: function(){alert('bar');}});
 ````
