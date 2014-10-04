@@ -26,7 +26,7 @@
 
 		</li>
 		<li>
-			<b>Names autocomplete - Start Char set to ' '</b>
+			<b>Names autocomplete - Start Char set to ' ', caseSensitive to false</b>
 			<br>
 			<input type="text" value="name" id="name"/>
 			<p id ="names"></p>
@@ -53,7 +53,8 @@
 			$("#names").text("Try with: " + names.toString());
 			$('#name').autocomplete({
 				startChar:'',
-				words:names
+				words:names,
+				caseSensitive: false
 			});
 
 			var langs = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
