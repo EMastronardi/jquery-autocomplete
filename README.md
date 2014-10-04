@@ -24,7 +24,8 @@ A simple and lightweight jQuery plugin to add autocomplete feature to inputs, as
 	<script>
 		$("#autocompleteNames").autocomplete({
 			startChar:'', //from the beginning of the input
-			words: ['Jack', 'Thomas', 'Joshua', 'William', 'Daniel', 'Matthew', 'James', 'Joseph', 'Harry', 'Samuel']
+			words: ['Jack', 'Thomas', 'Joshua', 'William', 'Daniel',
+				'Matthew', 'James', 'Joseph', 'Harry', 'Samuel']
 
 		});
 		$("#autocompleteMailDomains").autocomplete();
